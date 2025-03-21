@@ -182,6 +182,13 @@ void delete_repeated_ele(Node *L)
     }
 }
 
+void find_max()
+{
+   
+ 
+}
+
+
 int main()
 {
     Node *list = initList();

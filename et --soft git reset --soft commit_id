@@ -1,0 +1,41 @@
+[33mcommit 87e39c6846b7de8e39614439216fc18ea9a78d05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 11:29:48 2025 +0800
+
+    use false true
+
+[33mcommit 82544945495dcf98cd849bdb1c5eee8a1301665a[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 11:29:17 2025 +0800
+
+    add function :void delete_repeated_ele(Node *L)
+
+[33mcommit 9d2c76563fbd93df88b2c3104cf348a953f285ec[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 10:23:39 2025 +0800
+
+    增加文字提示输出
+
+[33mcommit e845ee033b5c0a18922367a6580f7b41f66564d4[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 10:13:42 2025 +0800
+
+    addfind_from_last(Node *L , int pos )
+
+[33mcommit bc1381d511afd8413077ed5bce91feb2aed4501c[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 09:37:50 2025 +0800
+
+    V0.1
+
+[33mcommit b92900b4432237f21a619d11e857f984979e9a19[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Fri Mar 21 09:27:37 2025 +0800
+
+    V0.0
+
+[33mcommit 1f7061b0c676d12698d9bcb4e1e5b9fb9f8205cb[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: luye-Z <Z2914620382@163.com>
+Date:   Thu Mar 20 21:57:17 2025 +0800
+
+    数据结构学习v0.0
