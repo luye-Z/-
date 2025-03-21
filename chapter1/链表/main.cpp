@@ -60,7 +60,7 @@ void Listinsert(Node *L, int pos, ElemType e)
 
 {
 
-    Node *p = L;
+    Node *p = L->next;    //  跳过头结点（头结点实际上并没有使用，只是起一个辅助作用）
 
     for (int i = 0; i < pos - 1; i++)
     {
@@ -82,7 +82,7 @@ void Listlength(Node *L)
 {
     int count = 0;
     Node *p = L;
-    while (p->next != NULL)
+    while (p!= NULL)
     {
 
         p = p->next;
