@@ -181,7 +181,7 @@ void delete_repeated_ele(Node *L)
  
     }
 }
-ElemType  find_List_max(Node *L)
+void   find_List_max(Node *L)
 
 {
 Node * p  = L ; 
@@ -198,9 +198,31 @@ p =p->next  ;
 }
     
 std::cout<<"找到最大值为 : "<<List_MAX << std::endl;
+
+ 
+}
+
+ElemType  get_List_max(Node *L)
+
+{
+Node * p  = L ; 
+ElemType List_MAX = 0  ; 
+while(p != NULL )
+{
+   if(p->data >= List_MAX)
+   {
+    List_MAX = p->data  ;
+    
+   }
+p =p->next  ; 
+
+}
+    
+
 return List_MAX ; 
  
 }
+
 
 
 int main()
@@ -215,6 +237,7 @@ int main()
     insertail(list, 40);
     insertail(list, 50);
     Listinsert(list, 2, 999);
+    find_List_max(list) ;
     Listlength(list);
     ListNode(list);
     Listdelete(list, 2);
@@ -231,5 +254,6 @@ int main()
     // ListNode(list);
     ListNode(list);
     find_List_max(list) ;
+    std::cout<< get_List_max(list) <<std::endl ; 
     delete  list;
 }
