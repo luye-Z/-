@@ -15,6 +15,7 @@ Node *initList()
     head->data = 0;
     head->next = NULL;
     return head;
+    std::cout<<"头节点初始化成功"<<std::endl;
 }
 
 void inserHead(Node *L, ElemType e)
@@ -23,6 +24,7 @@ void inserHead(Node *L, ElemType e)
     p->data = e;
     p->next = L->next;
     L->next = p;
+    std::cout<<"在头部插入元素"<<e<<std::endl;
 }
 
 void insertail(Node *L, ElemType e)
@@ -42,11 +44,13 @@ void insertail(Node *L, ElemType e)
     q->next = NULL;
     q->data = e;
     tail->next = q;
+    std::cout<<"在尾部插入元素"<<e<<std::endl;
 }
 
 void ListNode(Node *L)
 {
     Node *p = L->next;
+    std::cout<<"列举出链表的所有元素"<<std::endl;
     while (p != NULL)
     {
 
@@ -54,13 +58,14 @@ void ListNode(Node *L)
         p = p->next;
     }
     std::cout << std::endl;
+
 }
 
 void Listinsert(Node *L, int pos, ElemType e)
 
 {
 
-    Node *p = L->next;    //  跳过头结点（头结点实际上并没有使用，只是起一个辅助作用）
+    Node *p = L;
 
     for (int i = 0; i < pos - 1; i++)
     {
@@ -76,13 +81,14 @@ void Listinsert(Node *L, int pos, ElemType e)
     q->next = pos_before_Node->next;
     q->data = e;
     pos_before_Node->next = q;
+    std::cout << "在" << "链表的" << pos << " 位置插入了 "<<e<<" 元素" << std::endl;
 }
 
 void Listlength(Node *L)
 {
     int count = 0;
-    Node *p = L;
-    while (p!= NULL)
+    Node *p = L->next;
+    while (p != NULL)
     {
 
         p = p->next;
@@ -109,8 +115,29 @@ void Listdelete(Node *L, int pos)
     Node *delete_pos_Node = p->next;
     pos_before_Node->next = delete_pos_Node->next;
     delete[] delete_pos_Node;
+    std::cout << "删除了" << "链表中" << "第 " << pos << " 个元素" << std::endl;
 }
 
+void find_from_last(Node *L, int pos)
+
+{
+    Node *fast = L->next; //  快慢指针指向除去头结点的第一个节点
+    Node *slow = L->next;
+    for (int i = 0; i < pos; i++) // 快指针先走 几步
+
+    {
+
+        fast = fast->next;
+    }
+    while (fast != NULL) // 循环当  fast 指向NULL的时候停止，fast 比slow快pos个身位
+
+    {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    std::cout << "链表中倒数第 " << pos << "个元素是：";
+    std::cout << slow->data << std::endl;
+}
 int main()
 {
     Node *list = initList();
@@ -128,5 +155,11 @@ int main()
     Listdelete(list, 2);
     ListNode(list);
     Listlength(list);
+    find_from_last(list, 3);
+    insertail(list, 60);
+    insertail(list, 70);
+    ListNode(list);
+    Listlength(list);
+    find_from_last(list, 3);
     delete[] list;
 }
