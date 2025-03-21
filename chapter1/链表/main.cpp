@@ -185,15 +185,20 @@ ElemType  find_List_max(Node *L)
 
 {
 Node * p  = L ; 
-ElemType List_MAX ; 
+ElemType List_MAX = 0  ; 
 while(p != NULL )
 {
-   
-
+   if(p->data >= List_MAX)
+   {
+    List_MAX = p->data  ;
+    
+   }
+p =p->next  ; 
 
 }
     
-
+std::cout<<"找到最大值为 : "<<List_MAX << std::endl;
+return List_MAX ; 
  
 }
 
@@ -225,5 +230,6 @@ int main()
     // ListNode(list);
     // ListNode(list);
     ListNode(list);
+    find_List_max(list) ;
     delete  list;
 }
