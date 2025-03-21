@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <vector>
+#include <math.h>
 using ElemType = int;
 
 struct Node
@@ -15,7 +16,7 @@ Node *initList()
     head->data = 0;
     head->next = NULL;
     return head;
-    std::cout<<"头节点初始化成功"<<std::endl;
+    std::cout << "头节点初始化成功" << std::endl;
 }
 
 void inserHead(Node *L, ElemType e)
@@ -24,7 +25,7 @@ void inserHead(Node *L, ElemType e)
     p->data = e;
     p->next = L->next;
     L->next = p;
-    std::cout<<"在头部插入元素"<<e<<std::endl;
+    std::cout << "在头部插入元素" << e << std::endl;
 }
 
 void insertail(Node *L, ElemType e)
@@ -44,13 +45,13 @@ void insertail(Node *L, ElemType e)
     q->next = NULL;
     q->data = e;
     tail->next = q;
-    std::cout<<"在尾部插入元素"<<e<<std::endl;
+    std::cout << "在尾部插入元素" << e << std::endl;
 }
 
 void ListNode(Node *L)
 {
     Node *p = L->next;
-    std::cout<<"列举出链表的所有元素"<<std::endl;
+    std::cout << "列举出链表的所有元素" << std::endl;
     while (p != NULL)
     {
 
@@ -58,7 +59,6 @@ void ListNode(Node *L)
         p = p->next;
     }
     std::cout << std::endl;
-
 }
 
 void Listinsert(Node *L, int pos, ElemType e)
@@ -81,7 +81,19 @@ void Listinsert(Node *L, int pos, ElemType e)
     q->next = pos_before_Node->next;
     q->data = e;
     pos_before_Node->next = q;
-    std::cout << "在" << "链表的" << pos << " 位置插入了 "<<e<<" 元素" << std::endl;
+    std::cout << "在" << "链表的" << pos << " 位置插入了 " << e << " 元素" << std::endl;
+}
+int List_get_length(Node *L)
+{
+    int count = 0;
+    Node *p = L->next;
+    while (p != NULL)
+    {
+
+        p = p->next;
+        count++;
+    }
+    return count;
 }
 
 void Listlength(Node *L)
@@ -113,9 +125,10 @@ void Listdelete(Node *L, int pos)
     }
     Node *pos_before_Node = p; // 获取删除位置的前一个节点(前驱结点)
     Node *delete_pos_Node = p->next;
+    std::cout << "删除了" << "链表中" << "第 " << pos << " 个元素 " <<delete_pos_Node->data <<std::endl;
     pos_before_Node->next = delete_pos_Node->next;
     delete[] delete_pos_Node;
-    std::cout << "删除了" << "链表中" << "第 " << pos << " 个元素" << std::endl;
+
 }
 
 void find_from_last(Node *L, int pos)
@@ -138,6 +151,37 @@ void find_from_last(Node *L, int pos)
     std::cout << "链表中倒数第 " << pos << "个元素是：";
     std::cout << slow->data << std::endl;
 }
+void delete_repeated_ele(Node *L)
+{
+
+    int List_length = List_get_length(L);
+    std::vector<bool> Dictionary_array(999);
+    for (int i = 0; i < List_length; i++) //  给字典数组赋值0
+    {
+        Dictionary_array[i] = 0;
+    }
+    Node *prev_p = L;     
+    Node *p = L->next;   //   P 指向第一个节点
+    int pos = 1; //  读取LIST
+    while (p != NULL)
+    {
+        if (Dictionary_array[p->data] == 0)  //  元素首次出现
+        {
+            Dictionary_array[p->data] = 1;
+            prev_p = prev_p ->next  ; 
+            p = p->next; 
+            pos ++  ; 
+        }
+        else if (Dictionary_array[p->data] == 1)  //  元素已经出现过了
+        {
+            Listdelete(L, pos);
+        }
+        p = prev_p->next ;
+
+ 
+    }
+}
+
 int main()
 {
     Node *list = initList();
@@ -161,5 +205,9 @@ int main()
     ListNode(list);
     Listlength(list);
     find_from_last(list, 3);
-    delete[] list;
+    delete_repeated_ele(list);
+    // ListNode(list);
+    // ListNode(list);
+    ListNode(list);
+    delete  list;
 }
