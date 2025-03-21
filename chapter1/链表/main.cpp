@@ -123,6 +123,7 @@ int main()
     insertail(list, 40);
     insertail(list, 50);
     Listinsert(list, 2, 999);
+    Listlength(list);
     ListNode(list);
     Listdelete(list, 2);
     ListNode(list);
