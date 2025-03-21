@@ -181,10 +181,19 @@ void delete_repeated_ele(Node *L)
  
     }
 }
+ElemType  find_List_max(Node *L)
 
-void find_max()
+{
+Node * p  = L ; 
+ElemType List_MAX ; 
+while(p != NULL )
 {
    
+
+
+}
+    
+
  
 }
 
