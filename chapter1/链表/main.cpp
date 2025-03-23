@@ -15,8 +15,9 @@ Node *initList()
     Node *head = new Node();
     head->data = 0;
     head->next = NULL;
-    return head;
     std::cout << "头节点初始化成功" << std::endl;
+    return head;
+
 }
 
 void inserHead(Node *L, ElemType e)
